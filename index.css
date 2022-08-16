@@ -1,5 +1,9 @@
+/* Fonts and Icons */
+
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;800&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+/* Colours */
 
 :root {
     --main-background-color: #1D1D1D;
@@ -10,6 +14,8 @@
     --button-blue-color: #3466CD;
     --button-green-color: #53d769;
 } 
+
+/* General layout */
 
 html{
     height: 100%;
@@ -41,6 +47,7 @@ body{
     display: flex;
     flex-direction: column;
     width: 50%;
+    overflow: auto;
 }
 
 @media (max-width: 1000px) {
@@ -71,14 +78,25 @@ body{
         flex-direction: column;
         width: 100%;
         height: 100%;
+        overflow:visible;
+        
     }
 } 
 
+/* Line styling */
+
 line{
     flex-direction: row;
-    margin-top: 4px;
-    margin-bottom: 4px;
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
+
+line.inline{
+    display: flex;
+    align-items: center;
+}
+
+/* Message styling */
 
 message{
     max-width: 55%;
@@ -98,6 +116,8 @@ message.you{
     background-color: var(--you-background-color);
 }
 
+/* Image styling */
+
 img.pfp{
     border-radius: 50%;
     width: 20%;
@@ -105,14 +125,7 @@ img.pfp{
     padding: 15px;
 }
 
-.title{
-    font-size: 40px;
-}
-
-line.inline{
-    display: flex;
-    align-items: center;
-}
+/* Table styling */
 
 table{
     margin-top: 4%;
@@ -142,6 +155,8 @@ table td.left{
     color: var(--dark-mode-secondary-text);
 }
 
+/* Icon styling */
+
 .icon-box{
     display: flex;
     flex-direction: row;
@@ -159,10 +174,7 @@ table td.left{
     margin: 0px 20px;
 }
 
-spacer{
-    flex-grow: 1;
-}
-
+/* User Input styling */
 input[type=text]{
     display: flex;
     flex-direction: column;
@@ -176,6 +188,7 @@ input[type=text]{
     background-color: transparent;
     height: 30px;
     padding-left: 15px;
+    backdrop-filter: blur(10px);
 }
 
 input[type=text]:focus {
@@ -194,14 +207,9 @@ button{
     color: var(--dark-mode-text);
     font-size: 30px;
     padding: 3px;
-    padding-left: 5px;
+    padding-left: 9px;
     cursor: grab;
     margin-left: 1%;
-}
-
-
-vertical-spacer{
-    flex-grow: 1;
 }
 
 footer{
@@ -210,4 +218,71 @@ footer{
     margin-right: 25px;
     bottom: 10px;
     z-index: 1;
+}
+
+/* The code for this animation has been modified from https://codepen.io/nzbin/pen/GGrXbp */
+
+.dot-flashing {
+    margin-left: 3%;
+    position: relative;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: var(--dark-mode-secondary-text);
+    color: var(--dark-mode-secondary-text);
+    animation: dotFlashing 1s infinite linear alternate;
+    animation-delay: .5s;
+  }
+  
+  .dot-flashing::before, .dot-flashing::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+  }
+  
+  .dot-flashing::before {
+    left: -15px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: var(--dark-mode-secondary-text);
+    color: var(--dark-mode-secondary-text);
+    animation: dotFlashing 1s infinite alternate;
+    animation-delay: 0s;
+  }
+  
+  .dot-flashing::after {
+    left: 15px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: var(--dark-mode-secondary-text);
+    color: var(--dark-mode-secondary-text);
+    animation: dotFlashing 1s infinite alternate;
+    animation-delay: 1s;
+  }
+  
+  @keyframes dotFlashing {
+    0% {
+      background-color: var(--dark-mode-secondary-text);
+    }
+    50%,
+    100% {
+      background-color: var(--dark-mode-text);
+    }
+  }
+
+/* Misc Styles */
+
+  .title{
+    font-size: 40px;
+}
+
+vertical-spacer{
+    flex-grow: 1;
+}
+
+spacer{
+    flex-grow: 1;
 }
