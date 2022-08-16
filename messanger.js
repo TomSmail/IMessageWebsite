@@ -40,14 +40,6 @@ function removeLoadAnimation(){
     document.getElementById("loadingArea").innerHTML = "";
 }
 
-function sleep(milliseconds) {
-    const date = Date.now();
-    let currentDate = null;
-    do {
-      currentDate = Date.now();
-    } while (currentDate - date < milliseconds);
-}
-
 function normaliseString(string){
     let newString = string.toString();
     var regex = /[.,\/#!$%\^&\*;:{}=\-_`~()?]/g;
