@@ -8,6 +8,7 @@
     --dark-mode-text: #E9E9E9;
     --dark-mode-secondary-text: #939393;
     --button-blue-color: #3466CD;
+    --button-green-color: #53d769;
 } 
 
 html{
@@ -163,6 +164,8 @@ spacer{
 }
 
 input[type=text]{
+    display: flex;
+    flex-direction: column;
     z-index: 1;
     width: 100%;
     border-radius: 20px;
@@ -179,6 +182,24 @@ input[type=text]:focus {
     color: var(--dark-mode-text);
 }
 
+button{
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    height: 100%;
+    width: 40px;
+    border-radius: 50%;
+    background-color: var(--button-green-color);
+    border: none;
+    color: var(--dark-mode-text);
+    font-size: 30px;
+    padding: 3px;
+    padding-left: 5px;
+    cursor: grab;
+    margin-left: 1%;
+}
+
+
 vertical-spacer{
     flex-grow: 1;
 }
@@ -189,5 +210,4 @@ footer{
     margin-right: 25px;
     bottom: 10px;
     z-index: 1;
-
 }

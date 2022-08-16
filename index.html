@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="index.css">
+        <script src="messanger.js"></script>
     </head>
     <body>
         <div class="main-box">
@@ -73,9 +74,13 @@
                     Oh cool! 
                 </message>
             </line>
+            <div id="messageArea"></div>
             <footer>
                 <form>
-                    <input type="text" name="inputtext" placeholder="Message"> </input>
+                    <line class="inline">
+                        <input type="text" placeholder="Message"  id="inputMessage"> </input>
+                        <button onclick="recieveMessage()" type="button"><i class="fa fa-arrow-up"></i></button>
+                    </line>
                 </form>
             </footer>
         </div>
