@@ -4,7 +4,9 @@
 3. Create a selection of if statements that are able to recognise certain messages
 4. On these specific messages send specific responses, answering the question
 */
+
 let numberOfBadQuestions = 0;
+let dateDisplayed = false;
 
 function sendMessage(sender, message){
     const node = document.createElement('line');
@@ -19,6 +21,9 @@ function sendMessage(sender, message){
 function recieveMessage(){
     let userMessage =  document.getElementById('inputMessage').value;
     console.log(userMessage);
+    if (!dateDisplayed){
+        displayDate();
+    }
     if (userMessage !== ''){
         sendMessage('me', userMessage);
     }else{
@@ -44,14 +49,32 @@ function normaliseString(string){
     let newString = string.toString();
     var regex = /[.,\/#!$%\^&\*;:{}=\-_`~()?]/g;
     var normalisedString = newString.toLowerCase();
-    normalisedString = normalisedString.replace(regex, '')
-    console.log('This is the normalised String: ' + normalisedString)
-    return normalisedString
+    normalisedString = normalisedString.replace(regex, '');
+    console.log('This is the normalised String: ' + normalisedString);
+    return normalisedString;
 }
+
+function displayDate(){
+    const now  = new Date();
+    const dateString = now.toDateString();
+    const node = document.createElement('line');
+    node.classList.add('inline');
+    const spacerLeft = document.createElement('spacer');
+    const spacerRight = document.createElement('spacer');
+    const element = document.createElement('date');
+    const textNode = document.createTextNode(dateString);
+    element.appendChild(textNode);
+    node.appendChild(spacerLeft);
+    node.appendChild(element);
+    node.appendChild(spacerRight);
+    document.getElementById("messageArea").insertAdjacentElement('beforeBegin', node);
+    dateDisplayed = true;
+}
+
 function sendResponse(userMessage){
     console.log(userMessage);
     var simplifiedMessage = normaliseString(userMessage);
-    console.log(simplifiedMessage);
+    console.log(simplifiedMessage); 
     let response = '';
     const possibleMessages = ['What is your favourite project?', 'What was your most difficult project?', 'Which project did you learn the most from?', 'How did you learn Java?', 'How did you learn JavaScript?', ];
     switch (simplifiedMessage){

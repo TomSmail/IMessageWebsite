@@ -213,6 +213,7 @@ button{
 }
 
 footer{
+    padding-top: 10px;
     margin-top: auto;
     position: sticky;
     margin-right: 25px;
@@ -272,6 +273,14 @@ footer{
       background-color: var(--dark-mode-text);
     }
   }
+
+/* Date Style */
+
+date{
+    font-size: small;
+    flex-direction: column;
+    color: var(--dark-mode-secondary-text);
+}
 
 /* Misc Styles */
 
